@@ -1,16 +1,14 @@
 # Node.js の最新公式イメージを使用
-FROM node:latest
+FROM node:20
 
 # アプリケーションディレクトリを設定
-WORKDIR /usr/src/app
+WORKDIR /node_project
 
 # package.json と package-lock.json を生成
 # 以下のコマンドで空のpackage.jsonを作成
 RUN npm init -y
-
-# 必要なパッケージをインストール
-# 例: Express をインストール
 RUN npm install express
+RUN npm install ejs
 
 # アプリケーションのソースコードをコピー
 COPY . .
